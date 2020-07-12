@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,10 +15,12 @@ abstract public class BasePage {
 
     protected  WebDriver driver;
     private WebDriverWait wait;
+    private Actions actions;
 
     public BasePage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(this.driver,TIMEOUT);
+        actions = new Actions(this.driver);
     }
 
     public void waitForElementToAppear(WebElement element){
@@ -25,6 +29,10 @@ abstract public class BasePage {
 
     public void click(WebElement element){
         this.waitForElementToAppear(element);
-        element.click();
+    }
+
+    public void hoverElement(WebElement element){
+        this.waitForElementToAppear(element);
+        actions.moveToElement(element).perform();
     }
 }
