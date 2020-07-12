@@ -17,13 +17,19 @@ public class SteamHomePageTest extends BaseTest {
         navbar = new NavBar(this.driver);
     }
 
-    @Test
+    @Test(priority = 2)
     public void testClickBannerSummerSales(){
+
         homePage.clickBannerSummerSale();
     }
 
     @Test(priority = 1)
     public void openForYouTab(){
         navbar.hoverForyouTab();
+    }
+
+    @Test(priority = 3)
+    public void searchInStoreField(){
+        navbar.inputTextInSearchField("The Wind Road");
     }
 }

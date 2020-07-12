@@ -35,4 +35,9 @@ abstract public class BasePage {
         this.waitForElementToAppear(element);
         actions.moveToElement(element).perform();
     }
+
+    public void inputText(WebElement element, String text){
+        this.waitForElementToAppear(element);
+        element.sendKeys(text);
+    }
 }
