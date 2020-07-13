@@ -30,6 +30,7 @@ public class SteamHomePageTest extends BaseTest {
 
     @Test(priority = 3)
     public void searchInStoreField(){
-        navbar.inputTextInSearchField("The Wind Road");
+        navbar.inputTextInSearchField("Portal 2");
+        navbar.getSuggestedGamesFromSearchField();
     }
 }

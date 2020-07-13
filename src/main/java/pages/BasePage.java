@@ -8,6 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //No need to init
 abstract public class BasePage {
 
@@ -39,5 +42,14 @@ abstract public class BasePage {
     public void inputText(WebElement element, String text){
         this.waitForElementToAppear(element);
         element.sendKeys(text);
+    }
+
+    public ArrayList<String> getSuggestions(List<WebElement> listOfElements){
+        ArrayList<String> suggestions = new ArrayList<String>();
+
+        for(WebElement element : listOfElements){
+            suggestions.add(element.getText());
+        }
+        return suggestions;
     }
 }
