@@ -1,11 +1,8 @@
 package tests;
 
 import components.NavBar;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pages.GameDescriptionPage;
 import pages.HomePage;
 import settings.BaseTest;
 
@@ -13,7 +10,6 @@ public class SteamHomePageTest extends BaseTest {
 
     private HomePage homePage;
     private NavBar navbar;
-    private GameDescriptionPage gameDescriptionPage;
 
     @BeforeTest
     public void setUp(){
@@ -43,10 +39,5 @@ public class SteamHomePageTest extends BaseTest {
     public void searchAGameAndGoItsPage(){
         navbar.inputTextInSearchField("Portal Knights");
         navbar.confirmGameIsInSuggestionsAndClickOverIt();
-    }
-
-    @Test(priority = 5)
-    public void openGamePageAndConfirmTitle(){
-
     }
 }

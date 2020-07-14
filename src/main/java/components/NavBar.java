@@ -5,9 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.util.Strings;
 import pages.BasePage;
-import pages.GameDescriptionPage;
+import pages.VideoGamePage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +23,10 @@ public class NavBar extends BasePage {
     private List<WebElement> suggestedGamesFromSearchField;
 
     private List<String> listOfSuggestions;
+
+    public String getNameOfGame() {
+        return nameOfGame;
+    }
 
     private String nameOfGame;
 
@@ -63,19 +66,17 @@ public class NavBar extends BasePage {
         System.out.println("Game: "+nameOfGame);
     }
 
-    public void searchForGameAndOpenItsPage(String game){
-        this.nameOfGame = game;
-        this.inputTextInSearchField(this.nameOfGame);
-        this.confirmGameIsInSuggestionsAndClickOverIt();
-    }
-
     public void confirmGameIsInSuggestionsAndClickOverIt(){
-        for(WebElement suggestions : suggestedGamesFromSearchField){
-            String suggestedNameOfGame = suggestions.getText();
-            if(suggestedNameOfGame.equalsIgnoreCase(nameOfGame)){
-                suggestions.click();
+        List<WebElement> optionThatMatches = new ArrayList<WebElement>();
+
+        for(WebElement suggestion : suggestedGamesFromSearchField){
+            String suggestedNameOfGame = suggestion.getText();
+            if(suggestedNameOfGame.equalsIgnoreCase(this.nameOfGame)){
+                optionThatMatches.add(suggestion);
             }
         }
+        for(WebElement option : optionThatMatches){
+            option.click();
+        }
     }
-
 }
