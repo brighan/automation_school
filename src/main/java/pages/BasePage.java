@@ -7,6 +7,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //No need to init
 abstract public class BasePage {
@@ -39,5 +43,39 @@ abstract public class BasePage {
     public void inputText(WebElement element, String text){
         this.waitForElementToAppear(element);
         element.sendKeys(text);
+    }
+
+    public ArrayList<String> getSuggestions(List<WebElement> listOfElements){
+        ArrayList<String> suggestions = new ArrayList<String>();
+
+        for(WebElement element : listOfElements){
+            suggestions.add(element.getText());
+        }
+        return suggestions;
+    }
+
+    //No needed till now.
+    public void waitForListOfElementsToAppear(List<WebElement> elements){
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+    }
+
+    public boolean confirmGameIsInSuggestions(List<String> suggestions, String gameExpected){
+        for(String suggestion : suggestions){
+            suggestion.contains(gameExpected);
+            return true;
+        }
+        return false;
+    }
+
+    public void submitTextFieldAfterSearch(WebElement element){
+        element.submit();
+    }
+
+    public boolean confirmStringIsInSuggestionsAndClickIt(List<String> suggestions, String nameOfGame){
+        for (String suggestion : suggestions){
+            suggestion.equalsIgnoreCase(nameOfGame);
+            return true;
+        }
+        return false;
     }
 }

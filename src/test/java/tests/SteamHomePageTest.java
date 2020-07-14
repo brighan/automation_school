@@ -30,6 +30,14 @@ public class SteamHomePageTest extends BaseTest {
 
     @Test(priority = 3)
     public void searchInStoreField(){
-        navbar.inputTextInSearchField("The Wind Road");
+        navbar.inputTextInSearchField("Portal");
+        navbar.getSuggestedGamesFromSearchField();
+        navbar.confirmStringIsInListOfSuggestions();
+    }
+
+    @Test(priority = 4)
+    public void searchAGameAndGoItsPage(){
+        navbar.inputTextInSearchField("Portal Knights");
+        navbar.confirmGameIsInSuggestionsAndClickOverIt();
     }
 }
