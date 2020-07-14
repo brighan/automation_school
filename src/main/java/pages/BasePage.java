@@ -46,7 +46,6 @@ abstract public class BasePage {
     }
 
     public ArrayList<String> getSuggestions(List<WebElement> listOfElements){
-        //this.waitForListOfElementsToAppear(listOfElements);
         ArrayList<String> suggestions = new ArrayList<String>();
 
         for(WebElement element : listOfElements){
@@ -55,14 +54,26 @@ abstract public class BasePage {
         return suggestions;
     }
 
+    //No needed till now.
     public void waitForListOfElementsToAppear(List<WebElement> elements){
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
     public boolean confirmGameIsInSuggestions(List<String> suggestions, String gameExpected){
-        //ArrayList<String> suggestionsArray = new ArrayList<String>();
         for(String suggestion : suggestions){
             suggestion.contains(gameExpected);
+            return true;
+        }
+        return false;
+    }
+
+    public void submitTextFieldAfterSearch(WebElement element){
+        element.submit();
+    }
+
+    public boolean confirmStringIsInSuggestionsAndClickIt(List<String> suggestions, String nameOfGame){
+        for (String suggestion : suggestions){
+            suggestion.equalsIgnoreCase(nameOfGame);
             return true;
         }
         return false;

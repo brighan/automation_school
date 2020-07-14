@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.util.Strings;
 import pages.BasePage;
+import pages.GameDescriptionPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,28 +43,39 @@ public class NavBar extends BasePage {
     public void inputTextInSearchField(String nameOfGame){
         this.nameOfGame = nameOfGame;
         this.inputText(searchField,nameOfGame);
-        //this.submitTextField(searchField);
     }
 
     public void submitTextField(WebElement element){
-        element.submit();
+        this.submitTextFieldAfterSearch(element);
     }
 
     public void getSuggestedGamesFromSearchField(){
         this.listOfSuggestions = this.getSuggestions(suggestedGamesFromSearchField);
-        //this.printSuggestions();
     }
 
     public void printSuggestions(){
         System.out.println(this.listOfSuggestions);
-        //System.out.println(this.listOfSuggestions.size());
     }
 
     public void confirmStringIsInListOfSuggestions(){
-        //System.out.println(nameOfGame);
         Assert.assertTrue(this.confirmGameIsInSuggestions(listOfSuggestions, nameOfGame));
         System.out.println("List: "+listOfSuggestions);
         System.out.println("Game: "+nameOfGame);
+    }
+
+    public void searchForGameAndOpenItsPage(String game){
+        this.nameOfGame = game;
+        this.inputTextInSearchField(this.nameOfGame);
+        this.confirmGameIsInSuggestionsAndClickOverIt();
+    }
+
+    public void confirmGameIsInSuggestionsAndClickOverIt(){
+        for(WebElement suggestions : suggestedGamesFromSearchField){
+            String suggestedNameOfGame = suggestions.getText();
+            if(suggestedNameOfGame.equalsIgnoreCase(nameOfGame)){
+                suggestions.click();
+            }
+        }
     }
 
 }
