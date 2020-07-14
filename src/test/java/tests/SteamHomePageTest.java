@@ -1,6 +1,8 @@
 package tests;
 
 import components.NavBar;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -30,7 +32,8 @@ public class SteamHomePageTest extends BaseTest {
 
     @Test(priority = 3)
     public void searchInStoreField(){
-        navbar.inputTextInSearchField("Portal 2");
+        navbar.inputTextInSearchField("Portal");
         navbar.getSuggestedGamesFromSearchField();
+        navbar.confirmStringIsInListOfSuggestions();
     }
 }
