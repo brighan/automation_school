@@ -17,13 +17,11 @@ public class VideoGamePage extends BasePage {
     public VideoGamePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
-        NavBar.class.;
     }
+
 //usar aqui el nameOfGame
-    public void confirmPageTitleMatchesNameOfGame(){
-        System.out.println("HERE");
-        String pageTitle = videoGamePageTitle.getText();
-        System.out.println(pageTitle.toLowerCase());
-        Assert.assertEquals("".toLowerCase(),pageTitle.toLowerCase());
+    public void confirmPageTitleMatchesNameOfGame(String nameOfGame){
+        String title = videoGamePageTitle.getText();
+        Assert.assertEquals(title,nameOfGame);
     }
 }

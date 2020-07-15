@@ -40,15 +40,17 @@ public class SteamHomePageTest extends BaseTest {
 
     @Test(priority = 4)
     public void searchAGameAndGoItsPage(){
-        navbar.inputTextInSearchField("Portal Knights");
+        String gameOfName = "Portal Knights";
+        navbar.inputTextInSearchField(gameOfName);
         navbar.confirmGameIsInSuggestionsAndClickOverIt();
-        videoGamePage.confirmPageTitleMatchesNameOfGame();
+        videoGamePage.confirmPageTitleMatchesNameOfGame(gameOfName);
     }
 
     @Test(priority = 5)
     public void searchAgeOfEmpiresAndGetItsInfo(){
-        navbar.inputTextInSearchField(" Age of Empires II: Definitive Edition");
+        String nameOfGame = "Age of Empires II: Definitive Edition";
+        navbar.inputTextInSearchField(nameOfGame);
         navbar.confirmGameIsInSuggestionsAndClickOverIt();
-        videoGamePage.confirmPageTitleMatchesNameOfGame();
+        videoGamePage.confirmPageTitleMatchesNameOfGame(nameOfGame);
     }
 }
