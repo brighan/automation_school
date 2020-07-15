@@ -4,17 +4,20 @@ import components.NavBar;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.VideoGamePage;
 import settings.BaseTest;
 
 public class SteamHomePageTest extends BaseTest {
 
     private HomePage homePage;
     private NavBar navbar;
+    private VideoGamePage videoGamePage;
 
     @BeforeTest
     public void setUp(){
         homePage = new HomePage(this.driver);
         navbar = new NavBar(this.driver);
+        videoGamePage = new VideoGamePage(this.driver);
     }
 
     @Test(priority = 2)
@@ -39,5 +42,13 @@ public class SteamHomePageTest extends BaseTest {
     public void searchAGameAndGoItsPage(){
         navbar.inputTextInSearchField("Portal Knights");
         navbar.confirmGameIsInSuggestionsAndClickOverIt();
+        videoGamePage.confirmPageTitleMatchesNameOfGame();
+    }
+
+    @Test(priority = 5)
+    public void searchAgeOfEmpiresAndGetItsInfo(){
+        navbar.inputTextInSearchField(" Age of Empires II: Definitive Edition");
+        navbar.confirmGameIsInSuggestionsAndClickOverIt();
+        videoGamePage.confirmPageTitleMatchesNameOfGame();
     }
 }
