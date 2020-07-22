@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
@@ -77,5 +78,10 @@ abstract public class BasePage {
             return true;
         }
         return false;
+    }
+
+    public void scrollDownToWebElement(WebElement element){
+        waitForElementToAppear(element);
+        ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 }

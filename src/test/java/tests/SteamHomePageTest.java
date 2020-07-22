@@ -1,11 +1,14 @@
 package tests;
 
+import com.google.gson.JsonObject;
 import components.NavBar;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.VideoGamePage;
 import settings.BaseTest;
+
+import java.util.Map;
 
 public class SteamHomePageTest extends BaseTest {
 
@@ -48,9 +51,15 @@ public class SteamHomePageTest extends BaseTest {
 
     @Test(priority = 5)
     public void searchAgeOfEmpiresAndGetItsInfo(){
+        JsonObject videoGameInfo = new JsonObject();
+            videoGameInfo.addProperty("TÍTULO","Age of Empires II: Definitive Edition");
+            videoGameInfo.addProperty("GÉNERO","");
+            videoGameInfo.addProperty("","");
+            videoGameInfo.addProperty("","");
         String nameOfGame = "Age of Empires II: Definitive Edition";
         navbar.inputTextInSearchField(nameOfGame);
         navbar.confirmGameIsInSuggestionsAndClickOverIt();
         videoGamePage.confirmPageTitleMatchesNameOfGame(nameOfGame);
+        videoGamePage.scrollToSection();
     }
 }
