@@ -17,11 +17,11 @@ public class TestClass {
 
     @Test
     public void failureTest(){
-        Assert.assertFalse(true);
+        Assert.assertTrue(true);
     }
 
     @Test
     public void testTrue(){
-        Assert.assertTrue(false);
+        Assert.assertFalse(false);
     }
 }

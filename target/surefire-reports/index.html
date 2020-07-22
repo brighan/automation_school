@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-tests.TestClass">
-              <span class="suite-name border-failed">tests.TestClass</span>
+              <span class="suite-name border-passed">tests.TestClass</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,26 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 2 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-tests.TestClass" class="hide-methods failed suite-tests.TestClass"> (hide)</a> <!-- hide-methods failed suite-tests.TestClass -->
-                      <a href="#" panel-name="suite-tests.TestClass" class="show-methods failed suite-tests.TestClass"> (show)</a> <!-- show-methods failed suite-tests.TestClass -->
-                    </span>
-                    <div class="method-list-content failed suite-tests.TestClass">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-tests.TestClass" title="tests.TestClass" hash-for-method="failureTest">failureTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-tests.TestClass" title="tests.TestClass" hash-for-method="testTrue">testTrue</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-tests.TestClass -->
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -121,7 +102,17 @@
                     <div class="method-list-content passed suite-tests.TestClass">
                       <span>
                         <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-tests.TestClass" title="tests.TestClass" hash-for-method="failureTest">failureTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-tests.TestClass" title="tests.TestClass" hash-for-method="loginTest">loginTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-tests.TestClass" title="tests.TestClass" hash-for-method="testTrue">testTrue</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-tests.TestClass -->
@@ -136,36 +127,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-tests.TestClass" class="panel tests.TestClass">
-          <div class="suite-tests.TestClass-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">tests.TestClass</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="failureTest">
-                  </a> <!-- failureTest -->
-                  <span class="method-name">failureTest</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [false] but found [true]
-	at tests.TestClass.failureTest(TestClass.java:20)
-... Removed 38 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testTrue">
-                  </a> <!-- testTrue -->
-                  <span class="method-name">testTrue</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
-	at tests.TestClass.testTrue(TestClass.java:25)
-... Removed 38 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-tests.TestClass-class-failed -->
           <div class="suite-tests.TestClass-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -174,9 +135,23 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="failureTest">
+                  </a> <!-- failureTest -->
+                  <span class="method-name">failureTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="loginTest">
                   </a> <!-- loginTest -->
                   <span class="method-name">loginTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTrue">
+                  </a> <!-- testTrue -->
+                  <span class="method-name">testTrue</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -240,7 +215,7 @@ data.setCell(0, 3, 9);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginTest')
 data.setCell(1, 2, 'tests.TestClass')
-data.setCell(1, 3, 0);
+data.setCell(1, 3, 1);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'testTrue')
 data.setCell(2, 2, 'tests.TestClass')
@@ -249,7 +224,7 @@ window.suiteTableData['tests.TestClass']= { tableData: data, tableDiv: 'times-di
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 9 ms</span>
+              <span class="suite-total-time">Total running time: 10 ms</span>
               <div id="times-div-tests.TestClass">
               </div> <!-- times-div-tests.TestClass -->
             </div> <!-- times-div -->
@@ -277,20 +252,16 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">tests.TestClass</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">failureTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">loginTest</span>
-                <span class="method-start">12 ms</span>
+                <span class="method-start">10 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">testTrue</span>
-                <span class="method-start">14 ms</span>
+                <span class="method-start">11 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tests.TestClass
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.651 sec <<< FAILURE!
-failureTest(tests.TestClass)  Time elapsed: 0.013 sec  <<< FAILURE!
-java.lang.AssertionError: expected [false] but found [true]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertFalse(Assert.java:65)
-	at org.testng.Assert.assertFalse(Assert.java:75)
-	at tests.TestClass.failureTest(TestClass.java:20)
-
-testTrue(tests.TestClass)  Time elapsed: 0.001 sec  <<< FAILURE!
-java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertTrue(Assert.java:44)
-	at org.testng.Assert.assertTrue(Assert.java:54)
-	at tests.TestClass.testTrue(TestClass.java:25)
-
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.715 sec
